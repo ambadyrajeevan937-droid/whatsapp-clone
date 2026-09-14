@@ -25,7 +25,9 @@ SECRET_KEY = 'django-insecure-bmtki^5#@l$cmbr^gnjnh@u(pfu91d5*-mdr$m8@@(udmu^p=@
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = [
+    "whatsapp-clone-zoYj.onrender.com",
+]
 
 
 # Application definition
