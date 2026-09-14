@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react";
 import axios from "axios";
 
+const API_URL = "https://whatsapp-clone-zoyj.onrender.com";
+const WS_URL = "wss://whatsapp-clone-zoyj.onrender.com";
+
 interface User {
   id: number;
   username: string;
@@ -74,7 +77,7 @@ function App() {
     );
 
     const ws = new WebSocket(
-      `ws://127.0.0.1:8000/ws/chat/${selectedUser.id}/?sender_id=${userId}`
+      `${WS_URL}/ws/chat/${selectedUser.id}/?sender_id=${userId}`
     );
 
     ws.onopen = () => {
@@ -189,7 +192,7 @@ function App() {
         localStorage.getItem("access");
 
       const response = await axios.get(
-        "http://127.0.0.1:8000/api/users/list/",
+        `${API_URL}/api/users/list/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -218,7 +221,7 @@ function App() {
         localStorage.getItem("access");
 
       const response = await axios.get(
-        `http://127.0.0.1:8000/api/chat/${userId}/`,
+       `${API_URL}/api/chat/${userId}/`,
         {
           headers: {
             Authorization: `Bearer ${token}`,
@@ -285,8 +288,8 @@ function App() {
 
     try {
       const url = isLogin
-        ? "http://127.0.0.1:8000/api/users/login/"
-        : "http://127.0.0.1:8000/api/users/register/";
+        ? `${API_URL}/api/users/login/`
+        : `${API_URL}/api/users/register/`;
 
       const response = await axios.post(url, {
         username,
