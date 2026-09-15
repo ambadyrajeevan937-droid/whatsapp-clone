@@ -10,6 +10,7 @@ from .models import Message
 class ChatConsumer(AsyncWebsocketConsumer):
 
     async def connect(self):
+        print("🔥 WEBSOCKET CONNECT STARTED", flush=True)
         self.user_id = self.scope["url_route"]["kwargs"]["user_id"]
 
         # Current logged-in user ID
